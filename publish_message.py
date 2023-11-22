@@ -6,8 +6,8 @@ mqtt_topic = "lamp_control_topic"
 
 # Сообщение для отправки
 message = {
-    "color": {"r": 255, "g": 0, "b": 0},
-    "brightness": 50
+    "color": {"r": 255, "g": 255, "b": 0},
+    "brightness": 10
 }
 
 # Опубликовать сообщение
