@@ -44,16 +44,17 @@ def on_message(client, userdata, msg):
 
 def create_lamp_window():
     window = tk.Tk()
-    window.title("Smart Lamp")
+    window.title("Lamp")
 
     global canvas
-    canvas = Canvas(window, width=200, height=200, bg="white")
+    canvas = Canvas(window, width=200, height=200, bg="aliceblue")
     global lamp
-    lamp = canvas.create_oval(50, 50, 150, 150, fill="#000000")
+    lamp = canvas.create_oval(50, 50, 150, 150, fill="#000000", outline='#f0f8ff')
+
     canvas.pack()
 
     global brightness_text
-    brightness_text = canvas.create_text(100, 180, text="Brightness: 0%", font=("Helvetica", 10))
+    brightness_text = canvas.create_text(100, 180, text="brightness - 0%", font=("Cascadia Mono", 16))
 
     return window
 
