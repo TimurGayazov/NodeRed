@@ -2,7 +2,7 @@ import time
 import tkinter as tk
 import paho.mqtt.client as mqtt
 import sqlite3
-import datetime
+
 db_name = 'logs.db'
 
 
@@ -79,28 +79,31 @@ def update_lamp():
 
 root = tk.Tk()
 root.title("Lamp")
+root.configure(bg='#2E2E2E')  # Set dark background color
 
-lamp_canvas = tk.Canvas(root, width=200, height=200)
+lamp_canvas = tk.Canvas(root, width=200, height=200, bg='#2E2E2E')
 lamp_canvas.pack()
 
-color_label = tk.Label(root, text="Color (RGB):")
+color_label = tk.Label(root, bg='#2E2E2E', fg='white')
 color_label.pack()
 
-color_entry_r = tk.Entry(root)
-color_entry_r.pack()
-color_entry_g = tk.Entry(root)
-color_entry_g.pack()
-color_entry_b = tk.Entry(root)
-color_entry_b.pack()
+color_entry_r = tk.Entry(root, width=5)
+color_entry_r.pack(side=tk.LEFT, padx=5)
 
-brightness_label = tk.Label(root, text="Brightness:")
-brightness_label.pack()
+color_entry_g = tk.Entry(root, width=5)
+color_entry_g.pack(side=tk.LEFT, padx=5)
+
+color_entry_b = tk.Entry(root, width=5)
+color_entry_b.pack(side=tk.LEFT, padx=5)
+
+brightness_label = tk.Label(root, text="Brightness:", bg='#2E2E2E', fg='white')
+brightness_label.pack(pady=5)
 
 brightness_scale = tk.Scale(root, from_=0, to=100, orient=tk.HORIZONTAL)
-brightness_scale.pack()
+brightness_scale.pack(pady=5)
 
-update_button = tk.Button(root, text="Change", command=update_lamp, bg='#282828', font=("Cascadia Mono", 10, ), border='2', textvariable='#FFFFFF')
-update_button.pack()
+update_button = tk.Button(root, text="Update Lamp", command=update_lamp, bg='#282828', fg='white', font=("Arial", 12))
+update_button.pack(pady=10, side=tk.TOP, anchor=tk.CENTER)  # Center the button
 
 client = mqtt.Client()
 client.on_connect = on_connect
