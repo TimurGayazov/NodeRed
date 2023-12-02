@@ -48,7 +48,11 @@ def on_connect(client, userdata, flags, rc):
 
 def on_message(client, userdata, msg):
     print(f"Received message: {msg.payload}")
-    if msg.payload == b'press':
+    if msg.payload == b'unlock':
+        door_lock.unlock()
+        time.sleep(10)
+        door_lock.lock()
+    elif msg.payload == b'lock':
         door_lock.unlock()
         time.sleep(10)
         door_lock.lock()
