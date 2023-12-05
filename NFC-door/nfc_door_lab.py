@@ -83,7 +83,7 @@ door_lock = DoorLock(mqtt_client)
 mqtt_client.on_connect = on_connect
 mqtt_client.on_message = on_message
 
-mqtt_client.connect("192.168.1.129", 1883, 60)
+mqtt_client.connect("10.3.3.216", 1883, 60)
 
 mqtt_client.loop_start()
 
